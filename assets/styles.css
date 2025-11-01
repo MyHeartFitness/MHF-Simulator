@@ -1,0 +1,390 @@
+/* assets/styles.css (add at the very top) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Local font-face fallback */
+@font-face{
+  font-family: 'Poppins';
+  src: url('/assets/fonts/poppins/Poppins-Regular.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face{
+  font-family: 'Poppins';
+  src: url('/assets/fonts/poppins/Poppins-SemiBold.woff2') format('woff2');
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+/* keep the same --mhf-font variable and rules */
+
+.mhf-header{ margin:0; }
+.mhf-h1{
+  margin:0 0 2px 0;            /* remove big top gap from the H1 */
+  line-height:1.15;
+  font-weight:700;
+}
+.mhf-sub{
+  margin:0;
+  color:#6b7280;               /* subtle subheading */
+  font-weight:400;
+}
+
+
+:root{
+  --mhf-yellow-300:#f7c967;
+  --mhf-orange-500:#f1a02c;
+  --mhf-orange-600:#ee8e18;
+  --mhf-blue-300:#9acefe;
+  --mhf-blue-400:#79a9fd;
+  --mhf-blue-500:#4d94fc;
+  --mhf-white:#ffffff;
+  --mhf-ink:#1f2937;
+  --mhf-soft:#fff7e6; /* secondary background */
+}
+
+html, body, [data-testid="stAppViewContainer"]{
+  color:var(--mhf-ink);
+  background:var(--mhf-white);
+}
+
+.mhf-hero{
+  padding:18px 20px;
+  border-radius:18px;
+  background:linear-gradient(135deg,var(--mhf-yellow-300),var(--mhf-orange-600));
+  color:#1f1f1f;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+
+.mhf-card{
+  background:var(--mhf-soft);
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:16px;
+  padding:16px;
+  margin:8px 0 16px;
+}
+
+.mhf-pill{
+  display:inline-block;
+  font-size:12px;
+  padding:2px 8px;
+  border-radius:999px;
+  background:#eef2ff;
+  border:1px solid #dbeafe;
+  margin-left:8px;
+}
+
+h3, h4{
+  margin-top:0.6rem;
+  letter-spacing:.2px;
+}
+
+[data-testid="stSidebar"]{
+  border-right:1px solid rgba(0,0,0,.06);
+}
+
+/* Buttons */
+.stButton > button{
+  border-radius:12px;
+  font-weight:600;
+  box-shadow:0 3px 10px rgba(238,142,24,.15);
+}
+.stDownloadButton > button{
+  border-radius:12px;
+  font-weight:600;
+}
+
+/* Tables */
+[data-testid="stDataFrame"]{
+  border-radius:12px;
+  overflow:hidden;
+}
+
+/* Plotly containers */
+.js-plotly-plot{
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+
+/* --- Distribution section styles (scoped) --- */
+.mhf-dist *{
+  color:#000 !important;              /* force black text in this area */
+}
+
+/* One-line helper text above the expander */
+.mhf-dist .mhf-dist-help{
+  background:#e8f4ff;
+  border:1px solid rgba(0,0,0,.08);
+  padding:8px 12px;
+  border-radius:10px;
+  margin:8px 0 10px;
+  font-size:13px;
+}
+
+/* Expander header */
+.mhf-dist [data-testid="stExpander"] > details > summary{
+  background:#9acefe !important;
+  color:#000 !important;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,.12);
+  padding:10px 12px;
+}
+
+/* Inside the expander: make inputs + dropdowns brand blue */
+.mhf-dist .stSelectbox div[role="combobox"]{
+  background:#9acefe !important;
+  color:#000 !important;
+  border:1px solid rgba(0,0,0,.15) !important;
+  border-radius:10px !important;
+}
+
+/* Number inputs */
+.mhf-dist .stNumberInput input{
+  background:#9acefe !important;
+  color:#000 !important;
+  border:1px solid rgba(0,0,0,.15) !important;
+  border-radius:10px !important;
+}
+
+/* +/- buttons in number inputs */
+.mhf-dist .stNumberInput button{
+  background:#9acefe !important;
+  color:#000 !important;
+  border:1px solid rgba(0,0,0,.15) !important;
+  border-radius:8px !important;
+}
+
+/* Tweak spacing */
+.mhf-dist .stMarkdown p{ margin-bottom:6px; }
+/* --- Distribution section: FULL DARK --- */
+.mhf-dist { margin-top: 6px; }
+
+/* All text inside this section = white */
+.mhf-dist *{
+  color:#fff !important;
+}
+
+/* Make the entire expander (header + body) black */
+.mhf-dist [data-testid="stExpander"] > details{
+  background:#000 !important;
+  border:1px solid rgba(255,255,255,.12) !important;
+  border-radius:12px !important;
+  overflow:hidden;
+}
+.mhf-dist [data-testid="stExpander"] > details > summary{
+  background:#000 !important;
+  color:#fff !important;
+  padding:12px 14px !important;
+  border-bottom:1px solid rgba(255,255,255,.06) !important;
+}
+.mhf-dist [data-testid="stExpander"] > details > div{
+  background:#000 !important;
+  padding:10px 14px 14px !important;
+}
+
+/* Helper text above the expander: keep dark */
+.mhf-dist .mhf-dist-help{
+  background:transparent !important;
+  border:0 !important;
+  color:#fff !important;
+  margin:0 0 8px 0 !important;
+  font-size:13px;
+}
+
+/* SELECTBOX (BaseWeb select) */
+.mhf-dist .stSelectbox [data-baseweb="select"] > div{
+  background:#000 !important;
+  border:1px solid rgba(255,255,255,.22) !important;
+  border-radius:10px !important;
+  box-shadow:none !important;
+}
+.mhf-dist .stSelectbox [data-baseweb="select"] *{
+  color:#fff !important;
+}
+.mhf-dist .stSelectbox [data-baseweb="select"] svg{
+  color:#fff !important;
+  fill:#fff !important;
+}
+
+/* NUMBER INPUT */
+.mhf-dist .stNumberInput input[type="number"],
+.mhf-dist .stNumberInput input[type="text"]{
+  background:#000 !important;
+  color:#fff !important;
+  border:1px solid rgba(255,255,255,.22) !important;
+  border-radius:10px !important;
+  box-shadow:none !important;
+}
+.mhf-dist .stNumberInput button,
+.mhf-dist .stNumberInput [data-baseweb="button"]{
+  background:#000 !important;
+  color:#fff !important;
+  border:1px solid rgba(255,255,255,.22) !important;
+  border-radius:8px !important;
+}
+.mhf-dist .stNumberInput svg{
+  color:#fff !important;
+  fill:#fff !important;
+}
+
+/* Labels and small captions */
+.mhf-dist label,
+.mhf-dist .stMarkdown p,
+.mhf-dist .stMarkdown strong{
+  color:#fff !important;
+}
+
+/* Focus outline for inputs (keeps accessibility) */
+.mhf-dist .stSelectbox [data-baseweb="select"] > div:focus-within,
+.mhf-dist .stNumberInput input:focus{
+  outline:2px solid #9acefe !important;
+  outline-offset:0 !important;
+  box-shadow:none !important;
+}
+
+/* Expander header stays blue */
+.mhf-dist [data-testid="stExpander"] > details > summary{
+  background:#9acefe !important;
+  color:#000 !important;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,.12);
+  padding:10px 12px;
+}
+
+/* SELECTBOX (Streamlit 1.50 uses BaseWeb "select") */
+.mhf-dist .stSelectbox [data-baseweb="select"] > div,
+.mhf-dist .stSelectbox [data-baseweb="select"] > div:focus-within{
+  background:#9acefe !important;
+  border:1px solid rgba(0,0,0,.2) !important;
+  box-shadow:none !important;
+}
+.mhf-dist .stSelectbox [data-baseweb="select"] *{
+  color:#000 !important;           /* text, selected value, placeholder, etc. */
+}
+.mhf-dist .stSelectbox [data-baseweb="select"] svg{
+  color:#000 !important;           /* dropdown chevron */
+  fill:#000 !important;
+}
+
+/* NUMBER INPUT */
+.mhf-dist .stNumberInput input[type="number"],
+.mhf-dist .stNumberInput input[type="text"]{
+  background:#9acefe !important;
+  color:#000 !important;
+  border:1px solid rgba(0,0,0,.2) !important;
+  box-shadow:none !important;
+  border-radius:10px !important;
+}
+/* stepper +/- buttons */
+.mhf-dist .stNumberInput button,
+.mhf-dist .stNumberInput [data-baseweb="button"]{
+  background:#9acefe !important;
+  color:#000 !important;
+  border:1px solid rgba(0,0,0,.2) !important;
+  border-radius:8px !important;
+}
+.mhf-dist .stNumberInput svg{
+  color:#000 !important;
+  fill:#000 !important;
+}
+
+/* --- Distribution section: FULL DARK --- */
+.mhf-dist { margin-top: 6px; }
+
+/* Make the expander shell black */
+.mhf-dist [data-testid="stExpander"] > details{
+  background:#000 !important;
+  border:1px solid rgba(255,255,255,.14) !important;
+  border-radius:12px !important;
+  overflow:hidden;
+}
+
+/* Header of expander */
+.mhf-dist [data-testid="stExpander"] > details > summary{
+  background:#000 !important;
+  color:#fff !important;
+  padding:12px 14px !important;
+  border-bottom:1px solid rgba(255,255,255,.06) !important;
+}
+
+/* Our inner dark panel (the expander body) */
+.mhf-dist .mhf-dist-panel{
+  background:#000 !important;
+  padding: 12px 14px 8px !important;
+}
+
+/* Make ALL text in the panel white */
+.mhf-dist .mhf-dist-panel *{
+  color:#fff !important;
+}
+
+/* Helper text above expander */
+.mhf-dist .mhf-dist-help{
+  background:transparent !important;
+  border:0 !important;
+  color:#fff !important;
+  margin:0 0 8px 0 !important;
+  font-size:13px;
+}
+
+/* SELECTBOX (BaseWeb select) */
+.mhf-dist .mhf-dist-panel .stSelectbox [data-baseweb="select"] > div,
+.mhf-dist .mhf-dist-panel .stSelectbox [data-baseweb="select"] > div:focus-within{
+  background:#111 !important;                   /* slightly lighter than #000 so inputs pop */
+  border:1px solid rgba(255,255,255,.25) !important;
+  border-radius:10px !important;
+  box-shadow:none !important;
+}
+.mhf-dist .mhf-dist-panel .stSelectbox [data-baseweb="select"] *{
+  color:#fff !important;
+}
+.mhf-dist .mhf-dist-panel .stSelectbox [data-baseweb="select"] svg{
+  color:#fff !important;
+  fill:#fff !important;
+}
+
+/* NUMBER INPUTS */
+.mhf-dist .mhf-dist-panel .stNumberInput input[type="number"],
+.mhf-dist .mhf-dist-panel .stNumberInput input[type="text"]{
+  background:#111 !important;
+  color:#fff !important;
+  border:1px solid rgba(255,255,255,.25) !important;
+  border-radius:10px !important;
+  box-shadow:none !important;
+}
+.mhf-dist .mhf-dist-panel .stNumberInput button,
+.mhf-dist .mhf-dist-panel .stNumberInput [data-baseweb="button"]{
+  background:#111 !important;
+  color:#fff !important;
+  border:1px solid rgba(255,255,255,.25) !important;
+  border-radius:8px !important;
+}
+.mhf-dist .mhf-dist-panel .stNumberInput svg{
+  color:#fff !important;
+  fill:#fff !important;
+}
+
+/* Labels and captions */
+.mhf-dist .mhf-dist-panel label,
+.mhf-dist .mhf-dist-panel .stMarkdown p,
+.mhf-dist .mhf-dist-panel .stMarkdown strong{
+  color:#fff !important;
+}
+
+/* Focus outlines for accessibility */
+.mhf-dist .mhf-dist-panel .stSelectbox [data-baseweb="select"] > div:focus-within,
+.mhf-dist .mhf-dist-panel .stNumberInput input:focus{
+  outline:2px solid #9acefe !important;
+  outline-offset:0 !important;
+  box-shadow:none !important;
+}
+
+/* Kill any orange ribbons/pills anywhere in the app */
+.mhf-hero-bar,
+.mhf-ribbon,
+.mhf-accent,
+.mhf-section-pill {
+  display: none !important;
+}
+
+/* If it was a Streamlit warning callout, hide that too (scoped very lightly) */
+.block-container .stAlert[data-baseweb="notification"] {
+  display: none !important;
+}

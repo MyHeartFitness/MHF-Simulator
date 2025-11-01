@@ -1,0 +1,7 @@
+[theme]
+primaryColor="#EE8E18"                # MHF orange (CTA buttons, sliders)
+backgroundColor="#FFFFFF"             # app background
+secondaryBackgroundColor="#9acefe"    # cards/containers (soft warm)
+textColor="#000000ff"                   # near-black
+font="sans serif"
+

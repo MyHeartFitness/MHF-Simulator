@@ -4,13 +4,11 @@ from yaml.loader import SafeLoader
 import plotly.express as px
 import pandas as pd
 from pathlib import Path
+from collections.abc import Mapping
 import streamlit_authenticator as stauth
 import re
 from io import BytesIO
-import pandas as pd  # if not already imported
-
-from mhf.risk_engine import compute_framingham, compute_mhf  # already added earlier
-
+import pandas as pd
 
 from mhf.generator import generate_profiles
 from mhf.risk_engine import compute_framingham, compute_mhf
@@ -90,8 +88,32 @@ with col_title:
 
 
 # ---------- Auth ----------
-with open('credentials.yaml') as file:
-    config = yaml.load(file, Loader=SafeLoader)
+
+def _to_dict(obj):
+    if isinstance(obj, Mapping):
+        return {k: _to_dict(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_to_dict(v) for v in obj]
+    return obj
+
+
+def load_auth_config():
+    if "auth" in st.secrets:
+        return _to_dict(st.secrets["auth"])
+
+    cfg_path = Path("credentials.yaml")
+    if cfg_path.exists():
+        with cfg_path.open("r") as file:
+            return yaml.load(file, Loader=SafeLoader)
+
+    st.error(
+        "No authentication configuration found. "
+        "Add credentials to `.streamlit/secrets.toml` or create `credentials.yaml`."
+    )
+    st.stop()
+
+
+config = load_auth_config()
 
 authenticator = stauth.Authenticate(
     config['credentials'],

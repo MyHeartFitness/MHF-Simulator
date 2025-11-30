@@ -335,7 +335,7 @@ def framingham_debug_row(row: pd.Series) -> dict:
     hdl_mmol = _ensure_mmol_tc(hdl_raw) if not np.isnan(hdl_raw) else float("nan")
 
     hdl_pts = _hdl_points_ccs(hdl_mmol)
-    tc_pts = _tc_points_ccs(tc_mmol)
+    tc_pts = _tc_points_ccs(tc_mmol, male)
     sbp_raw = row.get("sbp")
     on_bp_raw = row.get("on_bp_meds")
     on_bp_bool = _to_bool(on_bp_raw)
@@ -392,4 +392,3 @@ def mhf_risk_row(row: pd.Series) -> float:
 
 def compute_mhf(df: pd.DataFrame) -> pd.Series:
     return df.apply(mhf_risk_row, axis=1)
-
